@@ -1,0 +1,39 @@
+
+
+<table>
+    <thead>
+      <tr>
+        <th class="table-cell">Image</th>
+        <th class="table-cell">Prénom</th>
+        <th class="table-cell">Nom</th>
+        <th class="table-cell">Date de naissance</th>
+        <th class="table-cell">Catégorie du compte</th>
+        <th class="table-cell">Email</th>
+        <th class="table-cell">Profession</th>
+        <th class="table-cell">Actions</th>
+      </tr>
+    </thead>
+    <tbody *ngFor="let user of list; let i = index" class="table-row">
+        <div *ngFor="let user of allUsers"></div>
+
+      
+        <tr *ngIf="user.accountCategory === SearchItem || !SearchItem"> 
+        <td class="table-cell"><img [src]="user.picture" alt="Image de l'utilisateur" width="50" height="50"></td>
+        <td class="table-cell">{{ user.firstName }}</td>
+        <td class="table-cell">{{ user.lastName }}</td>
+        <td class="table-cell">{{ user.birthDate }}</td>
+        <td class="table-cell">{{ user.accountCategory }}</td>
+        <td class="table-cell">{{ user.email }}</td>
+        <td class="table-cell">{{ user.profession }}</td>
+        <td class="table-cell">
+          <button (click)="supprimerUtilisateur(i)" [disabled]="user.accountCategory === 'Admin'" [class.button-rouge]="true">Supprimer</button>
+           <li>{{user.firstName}}<button [routerLink]="['/editUser',user.idCustomer]"[queryParams]="{'fname':user.firstName,'lname':user.lastName}">Edit</button>
+            <button (click)="calculateCount()">Calculer</button>
+
+          <!-- <button (click)="add()">add new user</button>  -->
+          
+        </td>
+        
+      </tr>
+    </tbody>
+  </table>

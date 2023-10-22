@@ -1,0 +1,29 @@
+<div>
+  <h2>Liste des produits</h2>
+  <table>
+    <thead>
+      <tr>
+        <th>ID</th>
+        <th>Code</th>
+        <th>Libellé</th>
+        <th>Prix unitaire</th>
+        <th>Taux TVA</th>
+        <th>Action</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let product of ListProduct">
+        <td>{{ product.id }}</td>
+        <td>{{ product.code }}</td>
+        <td>{{ product.libelle }}</td>
+        <td>{{ product.prixunitaire | currency: 'EUR' }}</td>
+        <td>{{ product.tauxTva }}</td>
+        <td>
+          <button (click)="calculateProductsByLibelle(product.libelle)">Calculer</button>
+          <span *ngIf="resultCount > 0">Nombre de produits avec le même libellé : {{ resultCount }}</span>
+
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</div>

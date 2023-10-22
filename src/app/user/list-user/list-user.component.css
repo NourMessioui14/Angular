@@ -1,0 +1,28 @@
+/* Définir la classe CSS pour un bouton rouge */
+.button-rouge {
+    background-color: red;
+    color: white;
+  }
+/* Classe pour les bordures des cellules du tableau */
+.table-cell {
+    border: 1px solid #ccc;
+    padding: 8px;
+  }
+  
+  /* Classe pour les bordures supérieures des lignes du tableau */
+  .table-row {
+    border-top: 1px solid #ccc;
+  }
+  
+  /* Classe pour les bordures inférieures des lignes du tableau */
+  .table-row:last-child {
+    border-bottom: 1px solid #ccc;
+  }
+  .vertical-slide {
+    height: 70vh; /* Set the height to 100% of the viewport height */
+    object-fit: cover; /* Ensure the image covers the entire container */
+    object-position: center; /* Center the image within the container */
+    display: block; /* Ensure the image is displayed as a block element */
+    margin: 0 auto; /* Center the image horizontally */
+  }
+    
