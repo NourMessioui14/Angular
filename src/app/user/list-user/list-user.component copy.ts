@@ -1,7 +1,6 @@
-import { Component, EventEmitter, OnInit, Output } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { UserService } from 'src/app/Core/Services/user.service';
 import { user } from 'src/app/Models/us';
-import { Observable } from 'rxjs';
 
 @Component({
   selector: 'app-list-user',
@@ -9,30 +8,19 @@ import { Observable } from 'rxjs';
   styleUrls: ['./list-user.component.css']
 })
 export class ListUserComponent implements OnInit {
+  List_user: user[] = [];
 
-  SearchItem!:String;
-  list: user[] = [ ]; 
-  users$!: Observable<user[]>;
+  constructor(private users: UserService) {}
 
   ngOnInit() {
-    this.userService.getAllUsers().subscribe(
+    this.users.getAllUsers().subscribe(
       (data: any) => {
-        this.list = data.users;
+        this.List_user = data;
       },
       (error) => {
         console.error('Une erreur s\'est produite :', error);
       }
     );
   }
-
-
-  
-
-  constructor(private userService: UserService){
-    this.SearchItem='';
-    
-  }
-
-
 }
 

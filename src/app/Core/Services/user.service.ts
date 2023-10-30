@@ -1,88 +1,43 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
+import { Observable, throwError } from 'rxjs';
+import { catchError } from 'rxjs/operators';
+import { HttpHeaders } from '@angular/common/http';
+import { user } from 'src/app/Models/us';
 
 @Injectable({
   providedIn: 'root'
 })
 export class UserService {
-  URL="http://localhost:3000/users";
-
-  list = [
-    {
-
-          idCustomer: 1,
-          firstName: "Mila",
-          lastName: "Kunis",
-          birthDate: "1999-06-30",
-          accountCategory: "Admin",
-          email: "mila@kunis.com",
-          password: "test",
-          picture: "https://bootdey.com/img/Content/avatar/avatar3.png",
-          profession: "Software Engineer"
-        },
-        {
-          idCustomer: 2,
-          firstName: "George",
-          lastName: "Clooney",
-          birthDate: "1999-06-30",
-          accountCategory: "Customer",
-          email: "marlon@brando.com",
-          password: "test",
-          picture: "https://bootdey.com/img/Content/avatar/avatar2.png",
-          profession: "Software Engineer"
-        },
-        {
-          idCustomer: 3,
-          firstName: "George",
-          lastName: "Clooney",
-          birthDate: "1999-06-30",
-          accountCategory: "Customer",
-          email: "marlon@brando.com",
-          password: "test",
-          picture: "https://bootdey.com/img/Content/avatar/avatar1.png",
-          profession: "Software Engineer"
-        },
-        {
-          idCustomer: 4,
-          firstName: "Ryan",
-          lastName: "Gossling",
-          birthDate: "1999-06-30",
-          accountCategory: "Golden",
-          email: "Ryan@nicholson.com",
-          password: "test",
-          picture: "https://bootdey.com/img/Content/avatar/avatar4.png",
-          profession: "Software Engineer"
-        },
-        {
-          idCustomer: 5,
-          firstName: "Robert",
-          lastName: "Downey",
-          birthDate: "1999-06-30",
-          accountCategory: "Blocked Account",
-          email: "robert@nicholson.com",
-          password: "test",
-          picture: "https://bootdey.com/img/Content/avatar/avatar5.png",
-          profession: "Software Engineer"
-        }
-      
-      
-      
-    
-  ];
-
+  URl="http://localhost:3000/users"
 
   constructor(private http:HttpClient) { }
-
-  getAllusers(){
-    return this.http.get(this.URL);
-  }
-  fetchNbInList(list: any[], attribute: string, attributeVal: string) {
-    let count = 0;
-    for (const item of list) {
-      if (item[attribute] === attributeVal) {
-        count++;
-      }
+  
+  getAllUsers(){
+      return this.http.get(this.URl);
     }
-    return count;
-  }
+  
+    
+  
+  
+    addUser(user: any): Observable<any> {
+      return this.http.post(this.URl, user);
+    }
+    
+    deleteUser (id: string): Observable<user> {
+      let url=this.URl+'/'+id;
+      return this.http.delete<user>(url);
+      }
+
+      
+
+        getUser(id: string): Observable<user> {
+          return this.http.get<user>(this.URl + '/' + id);
+         }
+
+
+
+
+
+  
 }

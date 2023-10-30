@@ -3,11 +3,13 @@ import { RouterModule, Routes } from '@angular/router';
 import { UserComponent } from './user.component';
 import { ListUserComponent } from './list-user/list-user.component';
 import { UpdateUserComponent } from './update-user/update-user.component';
+import { AddUserComponent } from './add-user/add-user.component';
 
 const routes: Routes = [
   {path :"", component:UserComponent},
   {path:'listUser',component:ListUserComponent},
-  {path :"userUpdate",component:UpdateUserComponent}
+  {path :"userUpdate",component:UpdateUserComponent},
+  {path:"addUser",component:AddUserComponent}
 
 ];
 
