@@ -3,18 +3,17 @@ import { Injectable } from '@angular/core';
 import { Observable, throwError } from 'rxjs';
 import { catchError } from 'rxjs/operators';
 import { HttpHeaders } from '@angular/common/http';
-import { user } from 'src/app/Models/us';
-
+import { User } from 'src/app/Models/us';
 @Injectable({
   providedIn: 'root'
 })
 export class UserService {
-  URl="http://localhost:3000/users"
+ private URl="http://localhost:3000/users"
 
   constructor(private http:HttpClient) { }
   
-  getAllUsers(){
-      return this.http.get(this.URl);
+  getAllUsers() :Observable<User[]>{
+      return this.http.get<User[]>(this.URl);
     }
   
     
@@ -24,17 +23,27 @@ export class UserService {
       return this.http.post(this.URl, user);
     }
     
-    deleteUser (id: string): Observable<user> {
+    deleteUser (id: string): Observable<User> {
       let url=this.URl+'/'+id;
-      return this.http.delete<user>(url);
+      return this.http.delete<User>(url);
       }
 
       
 
-        getUser(id: string): Observable<user> {
-          return this.http.get<user>(this.URl + '/' + id);
+        getUser(id: string): Observable<User> {
+          return this.http.get<User>(this.URl + '/' + id);
          }
 
+
+         updateUser(u:User){
+          let id=u.id;
+          return this.http.put(this.URl+'/'+id,u);
+
+         }
+
+         getUserById(id:number){
+          return this.http.get<User>(this.URl+'/'+id);
+         }
 
 
 

@@ -1,1 +1,37 @@
-<p>update-user works!</p>
+<h2>update</h2>
+<form class="form-group" [formGroup]="updateForm" *ngIf="updateForm">
+    <div class="form-group">
+      <label for="fn">First name</label>
+      <input type="text" class="form-control" id="fn" name="name" formControlName="fn">
+      
+
+      <label for="ln">Last name </label>
+      <input type="text" class="form-control" id="ln" name="ln" formControlName="ln">
+      
+
+    <label for="bd">Birth date </label>
+    <input type="date" class="form-control"  name="bd" formControlName="bd">
+
+    <label for="em">Email </label>
+    <input type="email" class="form-control" id="em" name="em" formControlName="email">
+
+    <label for="pw">Password </label>
+    <input type="password" class="form-control" id="pwd" name="pwd" formControlName="password">
+
+    <label for="pf">Profession  </label>
+    <input type="email" class="form-control" id="pf" name="fn" formControlName="profession">
+
+
+    <label for="cs">Customer </label>
+    <input type="customer" class="form-control" id="ct" name="fn" formControlName="accountcatg">
+
+    <label for="pc">Picture </label>
+    <input type="pc" class="form-control" id="pc" name="pc" formControlName="pic">
+
+    
+
+    </div>
+
+
+
+<button type="submit" class="btn btn-primary">Submit</button>  </form>

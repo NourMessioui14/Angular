@@ -4,6 +4,7 @@ import { ListUserComponent } from './user/list-user/list-user.component';
 import { ErrorPageComponent } from './error-page/error-page.component';
 import { ListProductComponent } from './product/list-product/list-product.component';
 import { AddUserComponent } from './user/add-user/add-user.component';
+import { UpdateUserComponent } from './user/update-user/update-user.component';
 
 const routes: Routes = [
 

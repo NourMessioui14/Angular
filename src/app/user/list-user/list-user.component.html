@@ -1,28 +1,41 @@
-<table>
-  <thead>
-    <tr>
-      <th class="table-cell">Image</th>
-      <th class="table-cell">Prénom</th>
-      <th class="table-cell">Nom</th>
-      <th class="table-cell">Date de naissance</th>
-      <th class="table-cell">Catégorie du compte</th>
-      <th class="table-cell">Email</th>
-      <th class="table-cell">Profession</th>
-      <th class="table-cell">Actions</th>
-    </tr>
-  </thead>
-  <tbody *ngFor="let user of (users$ | async); let i = index" class="table-row">
-    <tr *ngIf="user.accountCategory === SearchItem || !SearchItem"> 
-      <td class="table-cell"><img [src]="user.picture" alt="Image de l'utilisateur" width="50" height="50"></td>
-      <td class="table-cell">{{ user.firstName }}</td>
-      <td class="table-cell">{{ user.lastName }}</td>
-      <td class="table-cell">{{ user.birthDate }}</td>
-      <td class="table-cell">{{ user.accountCategory }}</td>
-      <td class="table-cell">{{ user.email }}</td>
-      <td class="table-cell">{{ user.profession }}</td>
-      <td class="table-cell">
-        <!-- <button (click)="deleteUser(user)" [disabled]="user.accountCategory === 'Admin'" [class.button-rouge]="true">Supprimer</button> -->
-      </td>
-    </tr>
-  </tbody>
-</table>
+<link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css" rel="stylesheet">
+<div class="container">
+<div class="row">
+    <div class="col-lg-12">
+        <div class="main-box clearfix">
+            <div class="table-responsive">
+                <table class="table user-list">
+                  <thead>
+                      <tr>
+                        <th>picture</th>
+                        <th>Prénom</th>
+                        <th>Nom de famille</th>
+                        <th>Date de naissance</th>
+                        <th>Catégorie du compte</th>
+                        <th>Email</th>
+                        <th>password</th>                         
+                        <th>Profession</th>
+                        <th>Action</th>
+                          
+                      </tr>
+                    </thead>
+                    <tbody>
+                      <tr *ngFor="let user of List_user" class="table-row">
+                          <td class="table-cell"><img [src]="user.picture" alt="Image de l'utilisateur" width="50" height="50"></td>
+                          <td class="table-cell">{{ user.firstName }}</td>
+                          <td class="table-cell">{{ user.lastName }}</td>
+                          <td class="table-cell">{{ user.birthDate }}</td>
+                          <td class="table-cell">{{ user.accountCategory }}</td>
+                          <td class="table-cell">{{ user.email }}</td>
+                          <td class="table-cell">{{ user.password }}</td>
+                          <td class="table-cell">{{ user.profession }}</td>
+                          <td class="table-cell">
+                       
+                              <button class="btn btn-success btn-sm rounded-0" type="button" data-toggle="tooltip" data-placement="top" title="Edit" [routerLink]="['editUser',user.id]"><i class="fa fa-edit"></i></button>
+
+                       
+                            <button (click)="deleteUser(user.id)" [class.button-rouge]="true">Supprimer</button>
+                          </td>
+                        </tr>
+                    </tbody>
+                </table>

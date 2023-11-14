@@ -1,7 +1,7 @@
 {
   "users": [
     {
-      "id": 1,
+      "id": 7,
       "firstName": "Nour",
       "lastName": " Kunis",
       "birthDate": "1999-06-30",
@@ -12,7 +12,7 @@
       "profession": "Software Engineer"
     },
     {
-      "id": 2,
+      "id": 9,
       "firstName": "test",
       "lastName": " Kunis",
       "birthDate": "1999-06-30",
@@ -23,48 +23,15 @@
       "picture": "https://bootdey.com/img/Content/avatar/avatar3.png"
     },
     {
-      "id": 3,
-      "firstName": "George",
-      "lastName": "Cloney",
-      "birthDate": "1999-06-30",
-      "email": "marlon@brando.com",
-      "password": "test",
+      "id": "1",
+      "firstName": "nour",
+      "lastName": "messioui",
+      "birthDate": "2023-11-11",
+      "email": "nourbrava85@gmail.com",
+      "password": "nounouress",
       "profession": "Software Engineer",
       "accountCategory": "Customer",
-      "picture": "https://bootdey.com/img/Content/avatar/avatar1.png"
-    },
-    {
-      "id": 4,
-      "firstName": "Ryan",
-      "lastName": "Gossling",
-      "birthDate": "1999-06-30",
-      "accountCategory": "Golden",
-      "email": "Ryan@nicholson.com",
-      "password": "test",
-      "picture": "https://bootdey.com/img/Content/avatar/avatar4.png",
-      "profession": "Software Engineer"
-    },
-    {
-      "id": 5,
-      "firstName": "Robert",
-      "lastName": "Downey",
-      "birthDate": "1999-06-30",
-      "accountCategory": "Blocked Account",
-      "email": "robert@nicholson.com",
-      "password": "test",
-      "picture": "https://bootdey.com/img/Content/avatar/avatar5.png",
-      "profession": "Software Engineer"
-    },
-    {
-      "id": 6,
-      "firstName": "Nour",
-      "lastName": "Messioui",
-      "birthDate": "1999-06-30",
-      "accountCategory": "Blocked Account",
-      "email": "robert@nicholson.com",
-      "password": "test",
-      "picture": "https://bootdey.com/img/Content/avatar/avatar5.png",
-      "profession": "Software Engineer"
+      "picture": "https://bootdey.com/img/Content/avatar/avatar3.png"
     }
   ]
 }

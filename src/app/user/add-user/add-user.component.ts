@@ -1,9 +1,8 @@
 import { Component } from '@angular/core';
 import { UserService } from 'src/app/Core/Services/user.service';
-import { user } from 'src/app/Models/us';
 import { Router } from '@angular/router'; // Importez le module de routage
 import { NgForm } from '@angular/forms';
-
+import { User } from 'src/app/Models/us';
 @Component({
   selector: 'app-add-user',
   templateUrl: './add-user.component.html',
@@ -11,19 +10,15 @@ import { NgForm } from '@angular/forms';
 export class AddUserComponent {
   
   searchItem!:String ; 
-  List_user:user[]=[];
+  List_user:User[]=[];
+  newUser!:User;
 
-  user!:user;
 
   
 
   constructor(private Router:Router, private users:UserService){
   }
  
-  deleteUser(id:string) {
-    console.log(id)
-    this.users.deleteUser(id).subscribe(()=>alert('id deletefd'));
-  }
   
  /*  adduser()
   {
@@ -33,31 +28,34 @@ export class AddUserComponent {
   
     ); */
 
-    add(F:NgForm){
-    console.log(F.controls['fn'].value);
-    }
-    addUser(addForm: NgForm) {
-      if (addForm.valid) {
-        const newUser: user = {
+    add(F: NgForm) {
+      console.log(this.List_user.length);
+    
+      if (F.valid) {
+        this.newUser = {
           id: (this.List_user.length + 1).toString(),
-          firstName: this.user.firstName,
-          lastName: this.user.lastName,
-          birthDate: this.user.birthDate,
-          email: this.user.email,
-          password: this.user.password,
-          profession: this.user.profession,
-          accountCategory: this.user.accountCategory,
-          picture: this.user.picture,
+          firstName: F.value.firstName,
+          lastName: F.value.lastName,
+          birthDate: F.value.birthDate,
+          email: F.value.email,
+          password: F.value.password,
+          profession: F.value.profession,
+          accountCategory: F.value.accountCategory,
+          picture: F.value.picture,
         };
-  
-        this.List_user.push(newUser);
-        addForm.resetForm();
+    
+        this.users.addUser(this.newUser).subscribe(
+          () => {
+            alert('Added successfully');
+            F.resetForm();
+          },
+          (error) => {
+            console.error('Error adding user:', error);
+          }
+        );
       }
     }
-  
-  }
-  
+    
 
 
-
-
+    }
